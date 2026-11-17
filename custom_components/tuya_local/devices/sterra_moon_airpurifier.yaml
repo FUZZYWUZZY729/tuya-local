@@ -1,0 +1,70 @@
+name: Air purifier
+products:
+  - id: qzof5augfvhadtrj
+    manufacturer: Sterra
+    model: Moon
+entities:
+  - entity: fan
+    translation_key: air_purifier
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+      - id: 4
+        type: string
+        name: preset_mode
+        mapping:
+          - dps_val: low
+            value: low
+          - dps_val: mid
+            value: medium
+          - dps_val: high
+            value: high
+          - dps_val: auto
+            value: auto
+  - entity: switch
+    name: Ionizer
+    icon: "mdi:creation"
+    dps:
+      - id: 6
+        type: boolean
+        name: switch
+  - entity: sensor
+    translation_key: filter_life
+    category: diagnostic
+    dps:
+      - id: 5
+        type: integer
+        name: sensor
+        unit: "%"
+  - entity: button
+    translation_key: filter_reset
+    category: config
+    dps:
+      - id: 11
+        type: boolean
+        name: button
+  - entity: sensor
+    translation_key: air_quality
+    dps:
+      - id: 21
+        type: string
+        name: sensor
+  # Timer kept read-only until the full list of timer values is known.
+  - entity: sensor
+    name: Timer
+    icon: "mdi:timer-outline"
+    category: diagnostic
+    dps:
+      - id: 18
+        type: string
+        name: sensor
+  - entity: sensor
+    translation_key: time_remaining
+    class: duration
+    category: diagnostic
+    dps:
+      - id: 19
+        type: integer
+        name: sensor
+        unit: min
